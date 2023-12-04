@@ -1,0 +1,18 @@
+<IfModule dir_module>
+    DirectoryIndex index.php index.html
+</IfModule>
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html
+<FilesMatch "\.(html)$">
+   Header set Cache-Control: "no-cache, no-store"
+   Header unset ETag
+</FilesMatch>
+Header set X-Content-Type-Options nosniff
+AddHandler cgi-script .html .htm
+RewriteRule !(js|ico|gif|jpg|png|ttf) index.php [QSA,L]
+AddType application/vnd.ms-fontobject    .eot
+AddType application/x-font-opentype      .otf
+AddType image/svg+xml                    .svg
+AddType application/x-font-ttf           .ttf
+AddType application/font-woff            .woff
+AddType application/font-woff2           .woff2
